@@ -12,6 +12,16 @@ class ViewController: UIViewController {
 
     @IBOutlet var Time: UILabel!
     @IBOutlet var Date: UILabel!
+    @IBOutlet var CityName: UILabel!
+    @IBOutlet var CountryName: UILabel!
+    @IBOutlet var WeatherType: UIImageView!
+    @IBOutlet var TempNow: UILabel!
+    @IBOutlet var TempMax: UILabel!
+    @IBOutlet var TempMin: UILabel!
+    @IBOutlet var Humidity: UILabel!
+    @IBOutlet var WindSpeed: UILabel!
+    
+    
     let cityWeather: Weather = Weather(name: "Durham")
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +36,7 @@ class ViewController: UIViewController {
         
         cityWeather.downloadWeatherDetails{ () -> () in
             print("did we get here2")
+            self.updateUI();
         }
         
         
@@ -35,6 +46,18 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    func updateUI(){
+        CityName.text = cityWeather.city
+        CountryName.text = cityWeather.country
+        WeatherType.image = UIImage(named: "Cloudy")
+        TempNow.text = cityWeather.currentTemp
+        TempMax.text = cityWeather.maxTemp
+        TempMin.text = cityWeather.minTemp
+        Humidity.text = cityWeather.humidity
+        WindSpeed.text = cityWeather.windSpeed
+        
+        
     }
     
     func CurrentTime(timer:NSTimer){

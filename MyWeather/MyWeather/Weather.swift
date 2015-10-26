@@ -13,11 +13,11 @@ class Weather{
     private var _city: String!
     private var _country: String!
     private var _weatherType: String!
-    private var _currentTemp: Int!
-    private var _maxTemp: Int!
-    private var _minTemp: Int!
-    private var _windSpeed: Int!
-    private var _rainProb: Int!
+    private var _currentTemp: String!
+    private var _maxTemp: String!
+    private var _minTemp: String!
+    private var _windSpeed: String!
+    private var _humidity: String!
     private var _Url : String!
     
     var city:String{
@@ -32,24 +32,24 @@ class Weather{
         return _weatherType
     }
     
-    var currentTemp:Int{
+    var currentTemp:String{
         return _currentTemp
     }
     
-    var maxTemp:Int{
+    var maxTemp:String{
         return _maxTemp
     }
     
-    var minTemp:Int{
+    var minTemp:String{
         return _minTemp
     }
     
-    var windSpeed:Int{
+    var windSpeed:String{
         return _windSpeed
     }
     
-    var rainProb:Int{
-        return _rainProb
+    var humidity:String{
+        return _humidity
     }
     
     var Url:String{
@@ -76,10 +76,28 @@ class Weather{
             response in let result = response.result
             print(result.value)
             if let dict = result.value as? Dictionary<String, AnyObject>{
+                //City
                 if let name = dict["name"] as? String{
                     self._city = name
                     print(name)
                 }
+                //Country
+                if let sys = dict["sys"] as? Dictionary<String,AnyObject>{
+                    if let country = sys["country"] as? String{
+                    self._country = country
+                    print(self._country)
+                    }
+                }
+                //if let weather
+                //currentTemp
+                if let currentTemp = dict["main"] as? Dictionary<String,AnyObject>{
+                    if let temp = currentTemp["temp"] as? Int{
+                      self._currentTemp = "\(temp)°F"
+                      print(self._currentTemp)
+                    }
+                    
+                }
+                
             }
             completed()
             //print(result)
