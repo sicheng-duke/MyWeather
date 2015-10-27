@@ -59,15 +59,16 @@ class Weather{
     init(name: String)
     {
         self._city = name
-        
-        _Url = "\(URL_BASE)\(name)\(KEY)"
+        let url = URL_BASE+self._city+KEY
+        print(url)
+        _Url = url
 
         
         
     }
     
     func downloadWeatherDetails(completed: DownloadComplete){
-        let url = NSURL(string: _Url)!
+        let url = NSURL(string: self._Url)!
        
         //let manager = Alamofire.Manager.sharedInstance
         print("did we call function")

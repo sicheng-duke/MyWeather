@@ -69,7 +69,7 @@ class ViewController: UIViewController {
         let weekday = dateComponent.weekday
         let weekDay:Dictionary = [1: "Sunday",
             2: "Monday",
-            3: "Tuseday",
+            3: "Tuesday",
             4: "Wednesday",
             5: "Thurseday",
             6: "Friday",
