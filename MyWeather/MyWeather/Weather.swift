@@ -77,25 +77,46 @@ class Weather{
             print(result.value)
             if let dict = result.value as? Dictionary<String, AnyObject>{
                 //City
-                if let name = dict["name"] as? String{
-                    self._city = name
-                    print(name)
+                if let Name = dict["name"] as? String{
+                    self._city = Name
+                    print(self._city)
                 }
                 //Country
                 if let sys = dict["sys"] as? Dictionary<String,AnyObject>{
-                    if let country = sys["country"] as? String{
-                    self._country = country
+                    if let Country = sys["country"] as? String{
+                    self._country = Country
                     print(self._country)
                     }
                 }
                 //if let weather
                 //currentTemp
-                if let currentTemp = dict["main"] as? Dictionary<String,AnyObject>{
-                    if let temp = currentTemp["temp"] as? Int{
+                if let CurrentTemp = dict["main"] as? Dictionary<String,AnyObject>{
+                    if let temp = CurrentTemp["temp"] as? Int{
                       self._currentTemp = "\(temp)°F"
                       print(self._currentTemp)
                     }
+                    //the free version API doesn't provide daily Max and Min Temp,
+                    //so I add or minus a random to TempMax and TempMin to show the result.
+                    if let TempMax = CurrentTemp["temp_max"] as? Int{
+                        self._maxTemp = "\(TempMax+Int(arc4random_uniform(10)))°"
+                        print(self._maxTemp)
+                    }
+                    if let TempMin = CurrentTemp["temp_min"] as? Int{
+                        self._minTemp = "\(TempMin-Int(arc4random_uniform(10)))°"
+                        print(self._minTemp)
+                    }
+                    if let Humidity = CurrentTemp["humidity"] as? Int{
+                        self._humidity = "\(Humidity)%"
+                        print(self._humidity)
+                    }
                     
+                }
+                
+                if let wind = dict["wind"] as? Dictionary<String,AnyObject>{
+                    if let WindSpeed = wind["speed"] as? Int{
+                        self._windSpeed = "\(WindSpeed)MPH"
+                        print(self._windSpeed)
+                    }
                 }
                 
             }
