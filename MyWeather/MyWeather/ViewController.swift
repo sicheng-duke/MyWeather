@@ -21,8 +21,23 @@ class ViewController: UIViewController {
     @IBOutlet var Humidity: UILabel!
     @IBOutlet var WindSpeed: UILabel!
     
+    @IBOutlet var oneDayDate: UILabel!
+    @IBOutlet var oneDayMax: UILabel!
+    @IBOutlet var oneDayMin: UILabel!
     
-    let cityWeather: Weather = Weather(name: "Durham")
+    @IBOutlet var twoDayDate: UILabel!
+    @IBOutlet var twoDayMax: UILabel!
+    @IBOutlet var twoDayMin: UILabel!
+    
+    @IBOutlet var threeDayDate: UILabel!
+    @IBOutlet var threeDayMax: UILabel!
+    @IBOutlet var threeDayMin: UILabel!
+    
+    @IBOutlet var fourDayDate: UILabel!
+    @IBOutlet var fourDayMax: UILabel!
+    @IBOutlet var fourDayMin: UILabel!
+
+    var cityWeather: Weather = Weather(name: "Durham")
     override func viewDidLoad() {
         super.viewDidLoad()
         let tmr:NSTimer = NSTimer.scheduledTimerWithTimeInterval(
@@ -35,8 +50,12 @@ class ViewController: UIViewController {
         print("did we get here1")
         
         cityWeather.downloadWeatherDetails{ () -> () in
-            print("did we get here2")
-            self.updateUI();
+            self.cityWeather.downloadForecastWeatherDetails{ () -> () in
+                print("did we get here2")
+                self.updateUI();
+                
+            }
+
         }
         
         
@@ -58,6 +77,23 @@ class ViewController: UIViewController {
         WindSpeed.text = cityWeather.windSpeed
         
         
+        
+        oneDayMax.text = cityWeather.oneDayAfter.maxTemp
+        oneDayMin.text = cityWeather.oneDayAfter.minTemp
+        
+        twoDayMax.text = cityWeather.twoDayAfter.maxTemp
+        twoDayMin.text = cityWeather.twoDayAfter.minTemp
+
+        threeDayMax.text = cityWeather.threeDayAfter.maxTemp
+        threeDayMin.text = cityWeather.threeDayAfter.minTemp
+
+        fourDayMax.text = cityWeather.fourDayAfter.maxTemp
+        fourDayMin.text = cityWeather.fourDayAfter.minTemp
+
+        
+        
+        
+        
     }
     
     func CurrentTime(timer:NSTimer){
@@ -69,14 +105,26 @@ class ViewController: UIViewController {
         let weekday = dateComponent.weekday
         let weekDay:Dictionary = [1: "Sunday",
             2: "Monday",
-            3: "Tuseday",
+            3: "Tuesday",
             4: "Wednesday",
             5: "Thurseday",
             6: "Friday",
             7: "Saturday"]
+    
+        let weekDayAbbr:Dictionary = [0: "SUN",
+            1: "MON",
+            2: "TUES",
+            3: "WED",
+            4: "THUR",
+            5: "FRI",
+            6: "SAT"]
+        
         Time.text = formatter.stringFromDate(date)
         Date.text = weekDay[weekday]
-        
+        oneDayDate.text = weekDayAbbr[(weekday)%7]
+        twoDayDate.text = weekDayAbbr[(weekday+1)%7]
+        threeDayDate.text = weekDayAbbr[(weekday+2)%7]
+        fourDayDate.text = weekDayAbbr[(weekday+3)%7]
     }
 
 

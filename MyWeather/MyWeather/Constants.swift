@@ -10,6 +10,7 @@ import Foundation
 
 
 let URL_BASE = "http://api.openweathermap.org/data/2.5/weather?q="
-let KEY = "&units=Imperial&appid=264c69bb8bc51fdb4a51bbe7f1f96470"
-
+let BASE_KEY = "&units=Imperial&appid=bd82977b86bf27fb59a04b61b657fb6f"
+let URL_BASE_FORECAST = "http://api.openweathermap.org/data/2.5/forecast/daily?q="
+let URL_FORECAST = "&units=Imperial&cnt=5&appid=bd82977b86bf27fb59a04b61b657fb6f"
 typealias DownloadComplete = () -> () //creating closure

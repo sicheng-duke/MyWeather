@@ -550,9 +550,9 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="CityName" destination="zfH-xj-ZPR" id="5kV-15-HE7"/>
-                        <outlet property="CountryName" destination="QJI-qn-zIw" id="xYV-lB-azh"/>
-                        <outlet property="Date" destination="O01-Im-VzJ" id="pAj-j9-IbR"/>
+                        <outlet property="CityName" destination="zfH-xj-ZPR" id="5DX-N6-POn"/>
+                        <outlet property="CountryName" destination="QJI-qn-zIw" id="6tX-JT-ZxL"/>
+                        <outlet property="Date" destination="O01-Im-VzJ" id="NfA-7l-Q64"/>
                         <outlet property="Humidity" destination="h5i-Or-UcM" id="tnY-ye-pN2"/>
                         <outlet property="TempMax" destination="vkh-qc-BZd" id="wbH-W7-1lo"/>
                         <outlet property="TempMin" destination="SGz-xd-SPd" id="WVp-yd-ubv"/>
@@ -560,6 +560,18 @@
                         <outlet property="Time" destination="1yn-hA-UJE" id="evL-9Q-VPW"/>
                         <outlet property="WeatherType" destination="bXz-tV-4o8" id="Jmx-sT-wQj"/>
                         <outlet property="WindSpeed" destination="DvG-5S-eTw" id="Lbk-FP-Hv2"/>
+                        <outlet property="fourDayDate" destination="qjx-kl-dZ9" id="FDn-fq-rmT"/>
+                        <outlet property="fourDayMax" destination="KVe-Pv-iTc" id="6B8-uw-254"/>
+                        <outlet property="fourDayMin" destination="IDc-Rs-Ch6" id="LgH-fY-snz"/>
+                        <outlet property="oneDayDate" destination="o5e-sI-Zoy" id="ZS4-xa-oIS"/>
+                        <outlet property="oneDayMax" destination="LTS-ov-qaw" id="WKC-Nr-alX"/>
+                        <outlet property="oneDayMin" destination="c5Y-Bq-XOF" id="8hk-Qz-Tse"/>
+                        <outlet property="threeDayDate" destination="Utf-Xa-BSB" id="2RP-Ej-jcX"/>
+                        <outlet property="threeDayMax" destination="j8t-Bb-3mw" id="R4x-Ef-aPb"/>
+                        <outlet property="threeDayMin" destination="n8X-0O-Q3n" id="Log-Td-mL2"/>
+                        <outlet property="twoDayDate" destination="kbk-Gf-qmO" id="2WX-1j-pAD"/>
+                        <outlet property="twoDayMax" destination="Dze-RW-7og" id="B7O-ru-0xi"/>
+                        <outlet property="twoDayMin" destination="3i2-vH-q5u" id="wrt-E1-e8d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
