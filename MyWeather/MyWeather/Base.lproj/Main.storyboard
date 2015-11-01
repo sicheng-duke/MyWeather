@@ -221,7 +221,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="R1x-nm-JIm">
                                                                 <rect key="frame" x="0.0" y="27" width="68" height="37"/>
                                                                 <subviews>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image=" Rain" translatesAutoresizingMaskIntoConstraints="NO" id="Snk-kr-NRi">
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rain" translatesAutoresizingMaskIntoConstraints="NO" id="Snk-kr-NRi">
                                                                         <rect key="frame" x="0.0" y="0.0" width="37" height="37"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="37" id="PRv-8i-Wga"/>
@@ -293,7 +293,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="7GT-rl-dOK">
                                                                 <rect key="frame" x="0.0" y="27" width="68" height="37"/>
                                                                 <subviews>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image=" Rain" translatesAutoresizingMaskIntoConstraints="NO" id="6We-kg-L7J">
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rain" translatesAutoresizingMaskIntoConstraints="NO" id="6We-kg-L7J">
                                                                         <rect key="frame" x="0.0" y="0.0" width="37" height="37"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="37" id="Qo4-WX-cxr"/>
@@ -362,7 +362,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="HER-Q1-Zr6">
                                                         <rect key="frame" x="0.0" y="27" width="68" height="37"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image=" Rain" translatesAutoresizingMaskIntoConstraints="NO" id="avj-mb-l84">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cloudy" translatesAutoresizingMaskIntoConstraints="NO" id="avj-mb-l84">
                                                                 <rect key="frame" x="0.0" y="0.0" width="37" height="37"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="37" id="pSc-VA-GcP"/>
@@ -429,7 +429,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="N0K-8r-3HY">
                                                         <rect key="frame" x="0.0" y="27" width="68" height="37"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image=" Rain" translatesAutoresizingMaskIntoConstraints="NO" id="KIh-R9-aEh">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rain" translatesAutoresizingMaskIntoConstraints="NO" id="KIh-R9-aEh">
                                                                 <rect key="frame" x="0.0" y="0.0" width="37" height="37"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="37" id="TCJ-ZC-9ak"/>
@@ -480,7 +480,7 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="T8e-Uz-qKZ">
+                            <searchBar contentMode="redraw" placeholder="Input City Name" translatesAutoresizingMaskIntoConstraints="NO" id="T8e-Uz-qKZ">
                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
@@ -494,7 +494,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sun" translatesAutoresizingMaskIntoConstraints="NO" id="bXz-tV-4o8">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rain" translatesAutoresizingMaskIntoConstraints="NO" id="bXz-tV-4o8">
                                 <rect key="frame" x="190" y="141" width="220" height="220"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="220" id="RyZ-A5-fpg"/>
@@ -561,15 +561,19 @@
                         <outlet property="WeatherType" destination="bXz-tV-4o8" id="Jmx-sT-wQj"/>
                         <outlet property="WindSpeed" destination="DvG-5S-eTw" id="Lbk-FP-Hv2"/>
                         <outlet property="fourDayDate" destination="qjx-kl-dZ9" id="FDn-fq-rmT"/>
+                        <outlet property="fourDayIcon" destination="KIh-R9-aEh" id="PQh-HU-hXi"/>
                         <outlet property="fourDayMax" destination="KVe-Pv-iTc" id="6B8-uw-254"/>
                         <outlet property="fourDayMin" destination="IDc-Rs-Ch6" id="LgH-fY-snz"/>
                         <outlet property="oneDayDate" destination="o5e-sI-Zoy" id="ZS4-xa-oIS"/>
+                        <outlet property="oneDayIcon" destination="Snk-kr-NRi" id="JXq-dl-D8n"/>
                         <outlet property="oneDayMax" destination="LTS-ov-qaw" id="WKC-Nr-alX"/>
                         <outlet property="oneDayMin" destination="c5Y-Bq-XOF" id="8hk-Qz-Tse"/>
                         <outlet property="threeDayDate" destination="Utf-Xa-BSB" id="2RP-Ej-jcX"/>
+                        <outlet property="threeDayIcon" destination="avj-mb-l84" id="0Od-73-QhS"/>
                         <outlet property="threeDayMax" destination="j8t-Bb-3mw" id="R4x-Ef-aPb"/>
                         <outlet property="threeDayMin" destination="n8X-0O-Q3n" id="Log-Td-mL2"/>
                         <outlet property="twoDayDate" destination="kbk-Gf-qmO" id="2WX-1j-pAD"/>
+                        <outlet property="twoDayIcon" destination="6We-kg-L7J" id="fba-mx-07T"/>
                         <outlet property="twoDayMax" destination="Dze-RW-7og" id="B7O-ru-0xi"/>
                         <outlet property="twoDayMin" destination="3i2-vH-q5u" id="wrt-E1-e8d"/>
                     </connections>
@@ -580,9 +584,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name=" Rain" width="1200" height="1200"/>
+        <image name="Cloudy" width="1200" height="1200"/>
         <image name="Half-Moon" width="1200" height="1200"/>
-        <image name="Sun" width="1200" height="1200"/>
+        <image name="Rain" width="1200" height="1200"/>
         <image name="Thermometer-F" width="1200" height="1200"/>
         <image name="Wind" width="1200" height="1200"/>
         <image name="humidity-1" width="1200" height="1200"/>

@@ -20,6 +20,7 @@ class Weather{
     private var _humidity: String!
     private var _currentUrl : String!
     private var _forcastUrl : String!
+    private var _weatherIcon: Int!
     
     private var _1dayAfter: Weather!
     private var _2dayAfter: Weather!
@@ -64,6 +65,10 @@ class Weather{
     
     var forcastUrl:String{
         return _forcastUrl
+    }
+    
+    var weatherIcon:Int{
+        return _weatherIcon
     }
     
     var oneDayAfter: Weather {
@@ -143,6 +148,19 @@ class Weather{
                     }
                 }
                 
+                if let weatherInfo = dict["weather"] as? [Dictionary<String,AnyObject>]{
+                    if let icon = weatherInfo[0]["id"] as? Int{
+                        if icon == 800{
+                            self._weatherIcon = icon
+                        }
+                        else {
+                            self._weatherIcon = icon/100
+                        }
+                        
+                        print(self._weatherIcon)
+                    }
+                }
+                
             }
             completed()
             //print(result)
@@ -180,53 +198,90 @@ class Weather{
                         self._1dayAfter = Weather(name: self._city)
                         if let oneDay = Temp[1]["temp"] as? Dictionary<String,AnyObject>{
                             if let tempMax = oneDay["max"] as? Int{
-                                self.oneDayAfter._maxTemp = "\(tempMax)°"
-                                print(self.oneDayAfter._maxTemp)
+                                self._1dayAfter._maxTemp = "\(tempMax)°"
+                                print(self._1dayAfter._maxTemp)
                             }
                             if let tempMin = oneDay["min"] as? Int{
-                                self.oneDayAfter._minTemp = "\(tempMin)°"
-                                print(self.oneDayAfter._minTemp)
+                                self._1dayAfter._minTemp = "\(tempMin)°"
+                                print(self._1dayAfter._minTemp)
 
+                            }
+                            if let weatherInfo = Temp[1]["weather"] as? [Dictionary<String,AnyObject>]{
+                                if let icon = weatherInfo[0]["id"] as? Int{
+                                    print(icon)
+                                    if icon == 800{ self._1dayAfter._weatherIcon = icon}
+                                    else {self._1dayAfter._weatherIcon = icon/100}
+                                    print(self._1dayAfter._weatherIcon)
+                                }
                             }
                         }
                         
                         
                         self._2dayAfter = Weather(name: self._city)
-                        if let today = Temp[2]["temp"] as? Dictionary<String,AnyObject>{
-                            if let tempMax = today["max"] as? Int{
-                                self.twoDayAfter._maxTemp = "\(tempMax)°"
-                                print(self._maxTemp)
+                        if let twoDay = Temp[2]["temp"] as? Dictionary<String,AnyObject>{
+                            if let tempMax = twoDay["max"] as? Int{
+                                self._2dayAfter._maxTemp = "\(tempMax)°"
+                                
                             }
-                            if let tempMin = today["min"] as? Int{
-                                self.twoDayAfter._minTemp = "\(tempMin)°"
-                                print(self.twoDayAfter._minTemp)
+                            if let tempMin = twoDay["min"] as? Int{
+                                self._2dayAfter._minTemp = "\(tempMin)°"
+                                print(self._2dayAfter._minTemp)
+                            }
+                            if let weatherInfo = Temp[2]["weather"] as? [Dictionary<String,AnyObject>]{
+                                if let icon = weatherInfo[0]["id"] as? Int{
+                                    print(icon)
+                                    if icon == 800{ self._2dayAfter._weatherIcon = icon}
+                                    else {self._2dayAfter._weatherIcon = icon/100}
+                                    print(self._2dayAfter._weatherIcon)
+                                }
                             }
                         }
                         
                         self._3dayAfter = Weather(name: self._city)
-                        if let today = Temp[3]["temp"] as? Dictionary<String,AnyObject>{
-                            if let tempMax = today["max"] as? Int{
-                                self.threeDayAfter._maxTemp = "\(tempMax)°"
-                                print(self.threeDayAfter._maxTemp)
+                        if let threeDay = Temp[3]["temp"] as? Dictionary<String,AnyObject>{
+                            if let tempMax = threeDay["max"] as? Int{
+                                self._3dayAfter._maxTemp = "\(tempMax)°"
+                                print(self._3dayAfter._maxTemp)
                             }
-                            if let tempMin = today["min"] as? Int{
-                                self.threeDayAfter._minTemp = "\(tempMin)°"
-                                print(self.threeDayAfter._minTemp)
+                            if let tempMin = threeDay["min"] as? Int{
+                                self._3dayAfter._minTemp = "\(tempMin)°"
+                                print(self._3dayAfter._minTemp)
+                            }
+                            if let weatherInfo = Temp[3]["weather"] as? [Dictionary<String,AnyObject>]{
+                                if let icon = weatherInfo[0]["id"] as? Int{
+                                    print(icon)
+                                    if icon == 800{ self._3dayAfter._weatherIcon = icon}
+                                    else {self._3dayAfter._weatherIcon = icon/100}
+                                    print(self._3dayAfter._weatherIcon)
+                                }
                             }
                         }
                         
                         
                         self._4dayAfter = Weather(name: self._city)
-                        if let today = Temp[3]["temp"] as? Dictionary<String,AnyObject>{
-                            if let tempMax = today["max"] as? Int{
-                                self.fourDayAfter._maxTemp = "\(tempMax)°"
-                                print(self.fourDayAfter._maxTemp)
+                        if let fourDay = Temp[4]["temp"] as? Dictionary<String,AnyObject>{
+                            if let tempMax = fourDay["max"] as? Int{
+                                self._4dayAfter._maxTemp = "\(tempMax)°"
+                                print(self._4dayAfter._maxTemp)
                             }
-                            if let tempMin = today["min"] as? Int{
-                                self.fourDayAfter._minTemp = "\(tempMin)°"
-                                print(self.fourDayAfter._minTemp)
+                            
+                            if let tempMin = fourDay["min"] as? Int{
+                                self._4dayAfter._minTemp = "\(tempMin)°"
+                                print(self._4dayAfter._minTemp)
                             }
+                            
+                            if let weatherInfo = Temp[4]["weather"] as? [Dictionary<String,AnyObject>]{
+                                if let icon = weatherInfo[0]["id"] as? Int{
+                                    print(icon)
+                                    if icon == 800{ self._4dayAfter._weatherIcon = icon}
+                                    else {self._4dayAfter._weatherIcon = icon/100}
+                                    print(self._4dayAfter._weatherIcon)
+                                }
+                            }
+                            
+                            
                         }
+                        
                         
                         
                         
