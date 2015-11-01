@@ -18,7 +18,8 @@ class Weather{
     private var _minTemp: String!
     private var _windSpeed: String!
     private var _humidity: String!
-    private var _Url : String!
+    private var _currentUrl : String!
+    private var _forcastUrl : String!
     
     var city:String{
         return _city
@@ -52,27 +53,31 @@ class Weather{
         return _humidity
     }
     
-    var Url:String{
-        return _Url
+    var currentUrl:String{
+        return _currentUrl
+    }
+    
+    var forcastUrl:String{
+        return _forcastUrl
     }
     
     init(name: String)
     {
         self._city = name
         let url = URL_BASE+self._city+KEY
-        print(url)
-        _Url = url
-
+        _currentUrl = url
+        _forcastUrl = URL_BASE+self._city+URL_FORCAST
         
         
     }
     
     func downloadWeatherDetails(completed: DownloadComplete){
-        let url = NSURL(string: self._Url)!
+        let url = NSURL(string: self._currentUrl)!
        
         //let manager = Alamofire.Manager.sharedInstance
         print("did we call function")
         print(url)
+        //current data
         Alamofire.request(.GET, url).responseJSON{
             response in let result = response.result
             print(result.value)
@@ -124,6 +129,9 @@ class Weather{
             completed()
             //print(result)
         }
+        
+        
+        
         
     }
     

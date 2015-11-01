@@ -11,7 +11,5 @@ import Foundation
 
 let URL_BASE = "http://api.openweathermap.org/data/2.5/weather?q="
 let KEY = "&units=Imperial&appid=bd82977b86bf27fb59a04b61b657fb6f"
-let poke = "http://pokeapi.co/api/v1/pokemon/1"
-let urlurl = "http://api.openweathermap.org/data/2.5/weather?q=London,uk&units=Imperial&appid=bd82977b86bf27fb59a04b61b657fb6f"
-
+let URL_FORCAST = "&units=Imperial&cnt=5&appid=bd82977b86bf27fb59a04b61b657fb6f"
 typealias DownloadComplete = () -> () //creating closure

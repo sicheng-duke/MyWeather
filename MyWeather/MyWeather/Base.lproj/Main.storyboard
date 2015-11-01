@@ -157,7 +157,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9iz-nR-b7Q">
-                                                        <rect key="frame" x="390" y="0.0" width="70" height="40"/>
+                                                        <rect key="frame" x="389" y="0.0" width="70" height="40"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Wind" translatesAutoresizingMaskIntoConstraints="NO" id="hg2-N6-nsl">
                                                                 <rect key="frame" x="0.0" y="0.0" width="35" height="40"/>
@@ -348,7 +348,7 @@
                                                 </constraints>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="vsB-rf-phb">
-                                                <rect key="frame" x="329" y="0.0" width="68" height="64"/>
+                                                <rect key="frame" x="328" y="0.0" width="68" height="64"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SUN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Utf-Xa-BSB">
                                                         <rect key="frame" x="0.0" y="0.0" width="68" height="21"/>
