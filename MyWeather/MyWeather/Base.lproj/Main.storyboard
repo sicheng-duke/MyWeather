@@ -568,6 +568,7 @@
                         <outlet property="oneDayIcon" destination="Snk-kr-NRi" id="JXq-dl-D8n"/>
                         <outlet property="oneDayMax" destination="LTS-ov-qaw" id="WKC-Nr-alX"/>
                         <outlet property="oneDayMin" destination="c5Y-Bq-XOF" id="8hk-Qz-Tse"/>
+                        <outlet property="searchCity" destination="T8e-Uz-qKZ" id="wjj-pT-Xiy"/>
                         <outlet property="threeDayDate" destination="Utf-Xa-BSB" id="2RP-Ej-jcX"/>
                         <outlet property="threeDayIcon" destination="avj-mb-l84" id="0Od-73-QhS"/>
                         <outlet property="threeDayMax" destination="j8t-Bb-3mw" id="R4x-Ef-aPb"/>

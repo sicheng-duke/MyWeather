@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UISearchBarDelegate {
 
     @IBOutlet var Time: UILabel!
     @IBOutlet var Date: UILabel!
@@ -41,10 +41,15 @@ class ViewController: UIViewController {
     @IBOutlet var fourDayIcon: UIImageView!
     @IBOutlet var fourDayMax: UILabel!
     @IBOutlet var fourDayMin: UILabel!
-
+    
+    
+    @IBOutlet weak var searchCity: UISearchBar!
+    
     var cityWeather: Weather = Weather(name: "London")
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchCity.delegate = self
+        searchCity.returnKeyType = UIReturnKeyType.Done
         let tmr:NSTimer = NSTimer.scheduledTimerWithTimeInterval(
             2.0,
             target: self,
@@ -53,52 +58,127 @@ class ViewController: UIViewController {
             repeats: true)
         tmr.fire()
         print("did we get here1")
-        
-        cityWeather.downloadWeatherDetails{ () -> () in
-            self.cityWeather.downloadForecastWeatherDetails{ () -> () in
-                print("did we get here2")
-                self.updateUI();
-                
-            }
+        self.loadData()
 
-        }
+        
         
         
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    func loadData(){
+      
+        cityWeather.downloadWeatherDetails{ () -> () in
+            self.cityWeather.downloadForecastWeatherDetails{ () -> () in
+                print("did we get here2")
+                if self.cityWeather.cityValid == 1{
+                    self.updateUI();
+                }
+                else{
+                    self.alertMessage()
+                }
 
+            }
+        }
+        
+
+        
+    }
+    
+    func alertMessage(){
+        var alert = UIAlertView()
+        alert.title = "Invalid City"
+        alert.message = "Please make sure your city name is valid"
+        alert.addButtonWithTitle("Try again")
+        alert.show()
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        view.endEditing(true)
+        
+    }
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        if searchCity.text == nil || searchCity.text == ""{
+            view.endEditing(true)
+            loadData()
+            
+        }
+        else{
+            var name = cityWeather.city
+            var trimCity = searchCity.text!.stringByReplacingOccurrencesOfString(" ", withString: "")
+            cityWeather.cityName(trimCity)
+            cityWeather.downloadWeatherDetails{ () -> () in
+                self.cityWeather.downloadForecastWeatherDetails{ () -> () in
+                    print("did we get here2")
+                    if self.cityWeather.cityValid == 1{
+                        self.updateUI();
+                    }
+                    else{
+                        self.alertMessage()
+                    }
+                    
+                }
+            }
+
+            
+            
+            
+        }
+    }
+    /*
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchCity.text == nil || searchCity.text == ""{
+            view.endEditing(true)
+            loadData()
+            
+        }
+        else{
+            cityWeather.cityName(searchCity.text!)
+            loadData()
+            
+            
+            
+        }
+        
+    }
+*/
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    
+    
+    
     func updateUI(){
-        var currentWeather:String = weatherIcon[cityWeather.weatherIcon]!
+        let currentWeather:String = weatherIcon[cityWeather.weatherIcon]!
         CityName.text = cityWeather.city
         CountryName.text = cityWeather.country
         WeatherType.image = UIImage(named: currentWeather)
-        TempNow.text = cityWeather.currentTemp
+        TempNow.text = cityWeather.currentTemp+"°F"
         TempMax.text = cityWeather.maxTemp
         TempMin.text = cityWeather.minTemp
         Humidity.text = cityWeather.humidity
         WindSpeed.text = cityWeather.windSpeed
         
-        
-        var oneDayWeather:String = weatherIcon[cityWeather.oneDayAfter.weatherIcon]!
+        let oneDayWeather:String = weatherIcon[cityWeather.oneDayAfter.weatherIcon]!
         oneDayIcon.image = UIImage(named: oneDayWeather)
         oneDayMax.text = cityWeather.oneDayAfter.maxTemp
         oneDayMin.text = cityWeather.oneDayAfter.minTemp
         
-        var twoDayWeather:String = weatherIcon[cityWeather.twoDayAfter.weatherIcon]!
+        let twoDayWeather:String = weatherIcon[cityWeather.twoDayAfter.weatherIcon]!
         twoDayIcon.image = UIImage(named: twoDayWeather)
         twoDayMax.text = cityWeather.twoDayAfter.maxTemp
         twoDayMin.text = cityWeather.twoDayAfter.minTemp
         
-        var threeDayWeather:String = weatherIcon[cityWeather.threeDayAfter.weatherIcon]!
+        let threeDayWeather:String = weatherIcon[cityWeather.threeDayAfter.weatherIcon]!
         threeDayIcon.image = UIImage(named: threeDayWeather)
         threeDayMax.text = cityWeather.threeDayAfter.maxTemp
         threeDayMin.text = cityWeather.threeDayAfter.minTemp
 
-        var fourDayWeather:String = weatherIcon[cityWeather.fourDayAfter.weatherIcon]!
+        let fourDayWeather:String = weatherIcon[cityWeather.fourDayAfter.weatherIcon]!
         fourDayIcon.image = UIImage(named: fourDayWeather)
         fourDayMax.text = cityWeather.fourDayAfter.maxTemp
         fourDayMin.text = cityWeather.fourDayAfter.minTemp

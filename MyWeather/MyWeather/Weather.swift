@@ -12,7 +12,7 @@ class Weather{
     
     private var _city: String!
     private var _country: String!
-    private var _weatherType: String!
+    private var _cityValid: Int!
     private var _currentTemp: String!
     private var _maxTemp: String!
     private var _minTemp: String!
@@ -28,15 +28,18 @@ class Weather{
     private var _4dayAfter: Weather!
     
     var city:String{
-        return _city
+        get{
+            return _city
+        }
     }
+
     
     var country:String{
         return _country
     }
     
-    var weatherType:String{
-        return _weatherType
+    var cityValid:Int{
+        return _cityValid
     }
     
     var currentTemp:String{
@@ -87,12 +90,23 @@ class Weather{
         return _4dayAfter
     }
     
-    init(name: String)
-    {
-        self._city = name
+    func cityName(name:String){
+        _city = name
         let url = URL_BASE+self._city+BASE_KEY
         _currentUrl = url
         _forcastUrl = URL_BASE_FORECAST+self._city+URL_FORECAST
+        
+    }
+    
+    init(name: String)
+    {
+        
+        self._city = name
+        self._cityValid = 1;
+        let url = URL_BASE+self._city.stringByReplacingOccurrencesOfString(" ", withString: "")+BASE_KEY
+        print(url)
+        _currentUrl = url
+        _forcastUrl = URL_BASE_FORECAST+self._city.stringByReplacingOccurrencesOfString(" ", withString: "")+URL_FORECAST
         /*
         self._1dayAfter = Weather(name: self._city)
         self._2dayAfter = Weather(name: self._city)
@@ -113,30 +127,41 @@ class Weather{
         //current data
         Alamofire.request(.GET, url).responseJSON{
             response in let result = response.result
-            print(result.value)
+            //print(result.value)
             if let dict = result.value as? Dictionary<String, AnyObject>{
+                
+                if let error = dict["message"] as? String{
+                    if error.containsString("Error"){
+                        self._cityValid = 0
+                    }
+                }
+                else{
+                    self._cityValid = 1
+                }
+                
+                
                 //City
                 if let Name = dict["name"] as? String{
                     self._city = Name
-                    print(self._city)
+                    //print(self._city)
                 }
                 //Country
                 if let sys = dict["sys"] as? Dictionary<String,AnyObject>{
                     if let Country = sys["country"] as? String{
                     self._country = Country
-                    print(self._country)
+                    //print(self._country)
                     }
                 }
                 //if let weather
                 //currentTemp
                 if let CurrentTemp = dict["main"] as? Dictionary<String,AnyObject>{
                     if let temp = CurrentTemp["temp"] as? Int{
-                      self._currentTemp = "\(temp)°F"
-                      print(self._currentTemp)
+                      self._currentTemp = "\(temp)"
+                      //print(self._currentTemp)
                     }
                     if let Humidity = CurrentTemp["humidity"] as? Int{
                         self._humidity = "\(Humidity)%"
-                        print(self._humidity)
+                        //print(self._humidity)
                     }
                     
                 }
@@ -144,7 +169,7 @@ class Weather{
                 if let wind = dict["wind"] as? Dictionary<String,AnyObject>{
                     if let WindSpeed = wind["speed"] as? Int{
                         self._windSpeed = "\(WindSpeed)MPH"
-                        print(self._windSpeed)
+                        //print(self._windSpeed)
                     }
                 }
                 
@@ -157,7 +182,7 @@ class Weather{
                             self._weatherIcon = icon/100
                         }
                         
-                        print(self._weatherIcon)
+                        //print(self._weatherIcon)
                     }
                 }
                 
@@ -181,17 +206,18 @@ class Weather{
         Alamofire.request(.GET, url).responseJSON{
             response in let result = response.result
             print(result.value)
-            if let dict = result.value as? Dictionary<String, AnyObject>{
+                if let dict = result.value as? Dictionary<String, AnyObject>{
+
                 if let Temp = dict["list"] as? [Dictionary<String,AnyObject>]
                     where Temp.count > 0{
                         if let today = Temp[0]["temp"] as? Dictionary<String,AnyObject>{
                             if let tempMax = today["max"] as? Int{
                                 self._maxTemp = "\(tempMax)°"
-                                print(self._maxTemp)
+                                //print(self._maxTemp)
                             }
                             if let tempMin = today["min"] as? Int{
                                 self._minTemp = "\(tempMin)°"
-                                print(self._minTemp)
+                                //print(self._minTemp)
                             }
                         }
                         
@@ -199,19 +225,19 @@ class Weather{
                         if let oneDay = Temp[1]["temp"] as? Dictionary<String,AnyObject>{
                             if let tempMax = oneDay["max"] as? Int{
                                 self._1dayAfter._maxTemp = "\(tempMax)°"
-                                print(self._1dayAfter._maxTemp)
+                                //print(self._1dayAfter._maxTemp)
                             }
                             if let tempMin = oneDay["min"] as? Int{
                                 self._1dayAfter._minTemp = "\(tempMin)°"
-                                print(self._1dayAfter._minTemp)
+                                //print(self._1dayAfter._minTemp)
 
                             }
                             if let weatherInfo = Temp[1]["weather"] as? [Dictionary<String,AnyObject>]{
                                 if let icon = weatherInfo[0]["id"] as? Int{
-                                    print(icon)
+                                    //print(icon)
                                     if icon == 800{ self._1dayAfter._weatherIcon = icon}
                                     else {self._1dayAfter._weatherIcon = icon/100}
-                                    print(self._1dayAfter._weatherIcon)
+                                    //print(self._1dayAfter._weatherIcon)
                                 }
                             }
                         }
@@ -225,14 +251,14 @@ class Weather{
                             }
                             if let tempMin = twoDay["min"] as? Int{
                                 self._2dayAfter._minTemp = "\(tempMin)°"
-                                print(self._2dayAfter._minTemp)
+                                //print(self._2dayAfter._minTemp)
                             }
                             if let weatherInfo = Temp[2]["weather"] as? [Dictionary<String,AnyObject>]{
                                 if let icon = weatherInfo[0]["id"] as? Int{
-                                    print(icon)
+                                    //print(icon)
                                     if icon == 800{ self._2dayAfter._weatherIcon = icon}
                                     else {self._2dayAfter._weatherIcon = icon/100}
-                                    print(self._2dayAfter._weatherIcon)
+                                    //print(self._2dayAfter._weatherIcon)
                                 }
                             }
                         }
@@ -241,18 +267,18 @@ class Weather{
                         if let threeDay = Temp[3]["temp"] as? Dictionary<String,AnyObject>{
                             if let tempMax = threeDay["max"] as? Int{
                                 self._3dayAfter._maxTemp = "\(tempMax)°"
-                                print(self._3dayAfter._maxTemp)
+                                //print(self._3dayAfter._maxTemp)
                             }
                             if let tempMin = threeDay["min"] as? Int{
                                 self._3dayAfter._minTemp = "\(tempMin)°"
-                                print(self._3dayAfter._minTemp)
+                                //print(self._3dayAfter._minTemp)
                             }
                             if let weatherInfo = Temp[3]["weather"] as? [Dictionary<String,AnyObject>]{
                                 if let icon = weatherInfo[0]["id"] as? Int{
-                                    print(icon)
+                                    //print(icon)
                                     if icon == 800{ self._3dayAfter._weatherIcon = icon}
                                     else {self._3dayAfter._weatherIcon = icon/100}
-                                    print(self._3dayAfter._weatherIcon)
+                                    //print(self._3dayAfter._weatherIcon)
                                 }
                             }
                         }
@@ -262,20 +288,20 @@ class Weather{
                         if let fourDay = Temp[4]["temp"] as? Dictionary<String,AnyObject>{
                             if let tempMax = fourDay["max"] as? Int{
                                 self._4dayAfter._maxTemp = "\(tempMax)°"
-                                print(self._4dayAfter._maxTemp)
+                                //print(self._4dayAfter._maxTemp)
                             }
                             
                             if let tempMin = fourDay["min"] as? Int{
                                 self._4dayAfter._minTemp = "\(tempMin)°"
-                                print(self._4dayAfter._minTemp)
+                                //print(self._4dayAfter._minTemp)
                             }
                             
                             if let weatherInfo = Temp[4]["weather"] as? [Dictionary<String,AnyObject>]{
                                 if let icon = weatherInfo[0]["id"] as? Int{
-                                    print(icon)
+                                    //print(icon)
                                     if icon == 800{ self._4dayAfter._weatherIcon = icon}
                                     else {self._4dayAfter._weatherIcon = icon/100}
-                                    print(self._4dayAfter._weatherIcon)
+                                    //print(self._4dayAfter._weatherIcon)
                                 }
                             }
                             
