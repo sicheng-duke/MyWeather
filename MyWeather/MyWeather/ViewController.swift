@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController, UISearchBarDelegate {
-
+    //define some component on the view 
     @IBOutlet var Time: UILabel!
     @IBOutlet var Date: UILabel!
     @IBOutlet var CityName: UILabel!
@@ -46,6 +46,9 @@ class ViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var searchCity: UISearchBar!
     
     var cityWeather: Weather = Weather(name: "London")
+    
+    //----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    //load view
     override func viewDidLoad() {
         super.viewDidLoad()
         searchCity.delegate = self
@@ -57,7 +60,6 @@ class ViewController: UIViewController, UISearchBarDelegate {
             userInfo: nil,
             repeats: true)
         tmr.fire()
-        print("did we get here1")
         self.loadData()
 
         
@@ -66,11 +68,12 @@ class ViewController: UIViewController, UISearchBarDelegate {
         // Do any additional setup after loading the view, typically from a nib.
     }
     
+    //----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    //load data
     func loadData(){
       
         cityWeather.downloadWeatherDetails{ () -> () in
             self.cityWeather.downloadForecastWeatherDetails{ () -> () in
-                print("did we get here2")
                 if self.cityWeather.cityValid == 1{
                     self.updateUI();
                 }
@@ -85,18 +88,27 @@ class ViewController: UIViewController, UISearchBarDelegate {
         
     }
     
+    
+    //----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    //when face error, show alert
     func alertMessage(){
-        var alert = UIAlertView()
+        let alert = UIAlertView()
         alert.title = "Invalid City"
         alert.message = "Please make sure your city name is valid"
         alert.addButtonWithTitle("Try again")
         alert.show()
     }
     
+    
+    //----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    //hide keyboard after enter
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         view.endEditing(true)
         
     }
+    
+    //----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    //Search bar controller
     func searchBarTextDidEndEditing(searchBar: UISearchBar) {
         if searchCity.text == nil || searchCity.text == ""{
             view.endEditing(true)
@@ -105,11 +117,10 @@ class ViewController: UIViewController, UISearchBarDelegate {
         }
         else{
             var name = cityWeather.city
-            var trimCity = searchCity.text!.stringByReplacingOccurrencesOfString(" ", withString: "")
+            let trimCity = searchCity.text!.stringByReplacingOccurrencesOfString(" ", withString: "")
             cityWeather.cityName(trimCity)
             cityWeather.downloadWeatherDetails{ () -> () in
                 self.cityWeather.downloadForecastWeatherDetails{ () -> () in
-                    print("did we get here2")
                     if self.cityWeather.cityValid == 1{
                         self.updateUI();
                     }
@@ -125,23 +136,7 @@ class ViewController: UIViewController, UISearchBarDelegate {
             
         }
     }
-    /*
-    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchCity.text == nil || searchCity.text == ""{
-            view.endEditing(true)
-            loadData()
-            
-        }
-        else{
-            cityWeather.cityName(searchCity.text!)
-            loadData()
-            
-            
-            
-        }
-        
-    }
-*/
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -152,6 +147,8 @@ class ViewController: UIViewController, UISearchBarDelegate {
     
     
     
+    //----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    //update UI
     func updateUI(){
         let currentWeather:String = weatherIcon[cityWeather.weatherIcon]!
         CityName.text = cityWeather.city
@@ -189,6 +186,9 @@ class ViewController: UIViewController, UISearchBarDelegate {
         
     }
     
+    
+    //----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    //show the current date and time
     func CurrentTime(timer:NSTimer){
         let date = NSDate()
         let calendar = NSCalendar.currentCalendar()
