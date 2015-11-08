@@ -29,40 +29,8 @@
             timestampString = "468120929.922664"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "156"
-            endingLineNumber = "156"
-            landmarkName = "updateUI()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyWeather/ViewController.swift"
-            timestampString = "468120929.922664"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
             startingLineNumber = "157"
             endingLineNumber = "157"
-            landmarkName = "updateUI()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyWeather/ViewController.swift"
-            timestampString = "468120929.922664"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "158"
-            endingLineNumber = "158"
             landmarkName = "updateUI()"
             landmarkType = "5">
          </BreakpointContent>
@@ -125,22 +93,6 @@
             timestampString = "468120929.922664"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
-            landmarkName = "updateUI()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyWeather/ViewController.swift"
-            timestampString = "468120929.922664"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
             startingLineNumber = "175"
             endingLineNumber = "175"
             landmarkName = "updateUI()"
@@ -177,6 +129,38 @@
             endingLineNumber = "76"
             landmarkName = "loadData()"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyWeather.ViewController.(loadData (MyWeather.ViewController) -&gt; () -&gt; ()).(closure #1)"
+                  moduleName = "MyWeather"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liu/Desktop/gitHub/MyWeather/MyWeather/MyWeather/ViewController.swift"
+                  timestampString = "468719394.994846"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76"
+                  offsetFromSymbolStart = "19">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyWeather.ViewController.(loadData (MyWeather.ViewController) -&gt; () -&gt; ()).(closure #1).(closure #1)"
+                  moduleName = "MyWeather"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liu/Desktop/gitHub/MyWeather/MyWeather/MyWeather/ViewController.swift"
+                  timestampString = "468719394.995152"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "77"
+                  endingLineNumber = "77"
+                  offsetFromSymbolStart = "19">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -202,12 +186,12 @@
                   moduleName = "MyWeather"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/liu/Desktop/gitHub/MyWeather/MyWeather/MyWeather/ViewController.swift"
-                  timestampString = "468115611.950973"
+                  timestampString = "468719395.097292"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "73"
-                  endingLineNumber = "73"
-                  offsetFromSymbolStart = "20">
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "19">
                </Location>
                <Location
                   shouldBeEnabled = "No"
@@ -217,12 +201,12 @@
                   moduleName = "MyWeather"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/liu/Desktop/gitHub/MyWeather/MyWeather/MyWeather/ViewController.swift"
-                  timestampString = "468115611.951217"
+                  timestampString = "468719395.097602"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "74"
-                  endingLineNumber = "74"
-                  offsetFromSymbolStart = "20">
+                  startingLineNumber = "76"
+                  endingLineNumber = "76"
+                  offsetFromSymbolStart = "19">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -234,11 +218,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyWeather/ViewController.swift"
-            timestampString = "468120929.922664"
+            timestampString = "468719407.559138"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
             landmarkName = "loadData()"
             landmarkType = "5">
          </BreakpointContent>
@@ -544,6 +528,38 @@
             startingLineNumber = "120"
             endingLineNumber = "120"
             landmarkName = "searchBarTextDidEndEditing(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyWeather/ViewController.swift"
+            timestampString = "468718774.424116"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "alertMessage()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyWeather/ViewController.swift"
+            timestampString = "468718774.959692"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "alertMessage()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

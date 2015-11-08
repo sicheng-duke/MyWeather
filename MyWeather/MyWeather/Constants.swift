@@ -10,9 +10,9 @@ import Foundation
 
 
 let URL_BASE = "http://api.openweathermap.org/data/2.5/weather?q="
-let BASE_KEY = "&units=Imperial&appid=bd82977b86bf27fb59a04b61b657fb6f"
+let BASE_KEY = "&units=Imperial&appid=2de143494c0b295cca9337e1e96b00e0"
 let URL_BASE_FORECAST = "http://api.openweathermap.org/data/2.5/forecast/daily?q="
-let URL_FORECAST = "&units=Imperial&cnt=5&appid=bd82977b86bf27fb59a04b61b657fb6f"
+let URL_FORECAST = "&units=Imperial&cnt=5&appid=2de143494c0b295cca9337e1e96b00e0"
 
 let weatherIcon:Dictionary<Int,String> = [2: "Thunderstrom",
     3: "Drizzle",
